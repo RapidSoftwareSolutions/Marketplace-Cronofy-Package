@@ -1,0 +1,69 @@
+{
+  "args": {
+    "tzid": "Europe/London",
+    "code":"gwa8Z8Q2BC5KkllZYy6QGY9AxEcM_RS9",
+    "clientId":"3F3rBp5AEWc6p4dC20CnTDI42GxLnCxO",
+    "clientSecret":"ckJN5ViVbA4qJpAoUnf7KBIv_RyzMMOCJsocYB2PU2IDWSNO-dJcUqejv4HgYWLvpQuqUim2DAdNRZ0Kkx-Onw",
+    "redirectUri":"https://rapidapi.com/",
+    "accessToken":"JAc_QM6OqXqVYU4eLRj-9_0EY-My4NtB",
+    "summary": "Board meeting",
+    "description": "Discuss plans for the next quarter.",
+    "eventStart": "2017-11-11 15:30:00",
+    "eventEnd": "2017-11-11 17:00:00",
+    "eventId":"23redsf",
+    "requiredDurationInMinutes":"1000",
+    "availability":{
+      "participants": [
+        {
+          "members": [
+            {
+              "sub": "acc_59e751cac6318303c60001a8",
+              "calendar_ids": ["cal_We8l881iVl0TABL3_LB50xJaq0Shmz54Do4c1Mw"]
+            }
+          ],
+          "required": "all"
+        }
+      ],
+      "required_duration": { "minutes": 60 },
+      "available_periods": [
+        { "start": "2017-10-30T09:00:00Z", "end": "2017-10-30T18:00:00Z" }
+      ]
+    }
+
+  }
+},
+
+{
+  "args": {
+    "requiredDurationInMinutes":"60",
+    "availablePeriods":[
+      {
+        "start": "2017-10-30T09:00:00Z",
+        "end": "2017-10-30T18:00:00Z"
+      },
+      {
+        "start": "2017-10-31T09:00:00Z",
+        "end": "2017-10-31T18:00:00Z"
+      }
+    ],
+    "accessToken": "JAc_QM6OqXqVYU4eLRj-9_0EY-My4NtB",
+    "participants": [{
+      "members": [
+        {
+          "sub": "acc_59e751cac6318303c60001a8",
+          "available_periods": [{
+            "start": "2017-10-30T09:00:00Z",
+            "end": "2017-10-30T12:00:00Z"
+          },
+            {
+              "start": "2017-10-31T10:00:00Z",
+              "end": "2017-10-31T20:00:00Z"
+            }
+          ]
+        }
+      ],
+      "required": "all"
+    }]
+
+  }
+}

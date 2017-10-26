@@ -1113,7 +1113,7 @@
                 "headers": {
                     "Authorization": "Bearer {$data['accessToken']}"
                 },
-                "url": "https:\/\/api.cronofy.com\/v1\/free_busy",
+                "url": "https://api.cronofy.com/v1/events",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -1857,7 +1857,7 @@
                         "false"
                     ],
                     "info": "A Boolean specifying whether only events that you are managing for the account should trigger notifications.",
-                    "required": true,
+                    "required": false,
                     "vendorSchema": {
                         "name": "only_managed"
                     }

@@ -12,7 +12,7 @@ $app->post('/api/Cronofy/updateEvents', function ($request, $response) {
         $post_data = $validateRes;
     }
 
-    $requiredParams = ['accessToken'=>'accessToken','calendarId'=>'calendar_id','summary'=>'summary','description'=>'description','eventStart'=>'eventStart','eventEnd'=>'eventEnd'];
+    $requiredParams = ['accessToken'=>'accessToken','calendarId'=>'calendar_id','summary'=>'summary','description'=>'description','eventStart'=>'start','eventEnd'=>'end'];
     $optionalParams = ['eventId'=>'event_id','transparency'=>'transparency','tzid'=>'tzid','reminders'=>'reminders','url'=>'url'];
     $bodyParams = [
        'json' => ['event_id','summary','description','tzid','start','end','location','url','transparency','reminders']

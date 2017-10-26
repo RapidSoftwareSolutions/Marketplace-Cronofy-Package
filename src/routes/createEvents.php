@@ -33,6 +33,7 @@ $app->post('/api/Cronofy/createEvents', function ($request, $response) {
     $requestParams['headers'] = ["Authorization"=>"Bearer {$data['accessToken']}"];
      
 
+
     try {
         $resp = $client->post($query_str, $requestParams);
         $responseBody = $resp->getBody()->getContents();

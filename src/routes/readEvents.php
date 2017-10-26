@@ -38,7 +38,7 @@ $app->post('/api/Cronofy/readEvents', function ($request, $response) {
     }
 
     $client = $this->httpClient;
-    $query_str = "https://api.cronofy.com/v1/free_busy";
+    $query_str = "https://api.cronofy.com/v1/events";
 
     
 

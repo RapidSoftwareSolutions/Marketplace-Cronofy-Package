@@ -20,6 +20,14 @@ $app->post('/api/Cronofy/createEvents', function ($request, $response) {
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
 
+    if(!empty($data['reminders']))
+    {
+        foreach($data['reminders'] as $key => $value)
+        {
+            $data['reminders'][$key]['minutes'] = (int) $value['minutes'];
+        }
+    }
+
     
     $data['start'] = \Models\Params::toFormat($data['start'], 'Y-m-d\TH:i:s\Z'); 
     $data['end'] = \Models\Params::toFormat($data['end'], 'Y-m-d\TH:i:s\Z'); 

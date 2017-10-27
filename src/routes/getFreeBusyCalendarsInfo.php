@@ -15,7 +15,7 @@ $app->post('/api/Cronofy/getFreeBusyCalendarsInfo', function ($request, $respons
     $requiredParams = ['accessToken'=>'accessToken','tzid'=>'tzid'];
     $optionalParams = ['from'=>'from','to'=>'to','includeManaged'=>'include_managed','calendarIds'=>'calendar_ids','localizedTimes'=>'localized_times'];
     $bodyParams = [
-       'query' => ['from','to','tzid','include_managed','calendar_ids','localized_times']
+       'query' => ['from','to','tzid','include_managed','localized_times','calendar_ids']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
@@ -32,11 +32,32 @@ $app->post('/api/Cronofy/getFreeBusyCalendarsInfo', function ($request, $respons
     }
 
     $client = $this->httpClient;
-    $query_str = "https://api.cronofy.com/v1/free_busy";
+    $query_str = "https://api.cronofy.com/v1/free_busy?";
 
-    
+    if(!empty($data['calendar_ids']))
+    {
+        $ids = '';
+        foreach($data['calendar_ids'] as $key => $value)
+        {
+            $ids .= 'calendar_ids[]='.$value.'&';
+        }
 
-    $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
+        $data['calendar_ids'] = $ids;
+    }
+
+    foreach($data as $key => $value)
+    {
+        if($key == 'calendar_ids')
+        {
+            $query_str .= '&'.$value;
+            continue;
+        }
+
+        $query_str .= '&'.$key.'='.$value;
+    }
+
+
+  //  $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
     $requestParams['headers'] = ["Authorization"=>"Bearer {$data['accessToken']}"];
      
 

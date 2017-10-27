@@ -20,7 +20,13 @@ $app->post('/api/Cronofy/updateEvents', function ($request, $response) {
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
 
-    
+    if(!empty($data['reminders']))
+    {
+        foreach($data['reminders'] as $key => $value)
+        {
+            $data['reminders'][$key]['minutes'] = (int) $value['minutes'];
+        }
+    }
 
     $client = $this->httpClient;
     $query_str = "https://api.cronofy.com/v1/calendars/{$data['calendar_id']}/events";

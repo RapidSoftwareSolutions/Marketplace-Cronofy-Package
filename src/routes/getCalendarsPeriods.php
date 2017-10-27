@@ -20,7 +20,24 @@ $app->post('/api/Cronofy/getCalendarsPeriods', function ($request, $response) {
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
 
-    
+
+
+    if(!empty($data['available_periods']))
+    {
+        foreach($data['available_periods'] as $key => $value)
+        {
+            if(!empty($value['start']))
+            {
+                $data['available_periods'][$key]['start'] = Models\Params::toFormat($value['start'], 'Y-m-d\TH:i:s\Z');
+            }
+            if(!empty($value['end']))
+            {
+                $data['available_periods'][$key]['end'] = Models\Params::toFormat($value['end'], 'Y-m-d\TH:i:s\Z');
+            }
+
+        }
+    }
+
 
     $client = $this->httpClient;
     $query_str = "https://api.cronofy.com/v1/availability";

@@ -174,24 +174,6 @@ Request example -
 }
 ```
 
-##### reminders
-
-You can provide an array of up to 5 reminders for an event. They should be provided in order of priority for your application, not time order. This is because the providers support a varying number of reminders and we will set as many as they allow, in the order you provide them.
-Number of reminders supported per provider:
-
-- Apple 5 reminders, note that icloud.com will only display two
-- Exchange 1 reminder
-- Google 5 reminders
-- Office 365 1 reminder
-- Outlook.com 1 reminder
-
-For example, if you provide 3 reminders and the provider only supports one, we will use the first one you specify, not the earliest or the latest one.
-As a concrete example, whilst we advise erring on the side of setting less reminders rather than more, it is easy to imagine that 3 reminders may be useful for an appointment:
-30 minutes before event start - get to the appointment;
-24 hours before event start - remember about the appointment;
-At event start - the appointment should have started;
-
-
 ## Cronofy.createCalendarAccessUrl
 Returns an URL to a form where the user can select the calendar they wish to have it added to as part of authorizing calendar access for your application.
 
@@ -301,7 +283,7 @@ Returns a list of events across all of a users calendars.By default, the events 
 | onlyManaged   | Select    | A Boolean specifying whether only events that you are managing for the account should be included in the results.Note that the events you manage are not subject to the default from and to date restrictions and so if you specify neither, you will retrieve all the events you are managing for the account across all of time.
 | includeGeo    | Select    | A Boolean specifying whether the events should have their location.lat and location.long returned where available.Verified applications must have geo-location included in their plan or the API call will result in a 402 error.
 | calendarIds   | List      | Restricts the returned free-busy information to that within the set of specified calendar_ids.
-| localizedTimes| Select    | A Boolean specifying whether the free-busy periods should have their start and end times returned with any available localization information.If not provided the start and end times will be returned as simple Time values.See more in readme.
+| localizedTimes| Select    | A Boolean specifying whether the free-busy periods should have their start and end times returned with any available localization information.If not provided the start and end times will be returned as simple Time values.
 
 ##### localizedTimes
 

@@ -106,31 +106,12 @@ Returns an URL to a form where a user can select their preferred date and time f
 | eventStart           | JSON       | The start time can be provided as a simple Time or Date string or an object with two attributes, time and tzid.
 | eventEnd             | JSON       | The end time can be provided as a simple Time or Date string or an object with two attributes, time and tzid.
 | tzid                 | String     | The timezone to render the event with.The start and end parameters should be omited.Example - Europe/Paris.
-| reminders            | String     | You can provide an array of up to 5 reminders for an event. They should be provided in order of priority for your application, not time order. This is because the providers support a varying number of reminders and we will set as many as they allow, in the order you provide them.
 | url                  | String     | A String value which must be parseable as a URI as defined as defined in RFC 1738 and RFC 2111.Omitting the value will leave the URL unchanged. Setting the value to null will remove the URL if supported by the provider.Support for event URLs is currently limited to Apple and Google. Please note there is an issue with Google whereby URLs are not removable once they are provided.
 | availability         | JSON       | An object with the details of the availability query used to determine the available time periods for the user to choose for the event's date and time. Details of what parameters this object can hold can be found in the Availability documentation.
 | targetCalendars      | Array      | An array of Cronofy IDs and calendar ids into which the final event will be inserted.
 | callbackUrl          | String     | A URL to call when the full event details are known.
 | formattingHourFormat | Select     | An String of either h (12-hour format) or H (24-hour format). If omitted then the hour format to use will be determined by Cronofy.
 | suppressAddToCalendar| Select     | A boolean flag to indicate whether to suppress the display of the `Add To Calendar` option once the recipient has selected a time.
-
-##### reminders
-
-You can provide an array of up to 5 reminders for an event. They should be provided in order of priority for your application, not time order. This is because the providers support a varying number of reminders and we will set as many as they allow, in the order you provide them.
-Number of reminders supported per provider:
-
-- Apple 5 reminders, note that icloud.com will only display two
-- Exchange 1 reminder
-- Google 5 reminders
-- Office 365 1 reminder
-- Outlook.com 1 reminder
-
-For example, if you provide 3 reminders and the provider only supports one, we will use the first one you specify, not the earliest or the latest one.
-As a concrete example, whilst we advise erring on the side of setting less reminders rather than more, it is easy to imagine that 3 reminders may be useful for an appointment:
-30 minutes before event start - get to the appointment;
-24 hours before event start - remember about the appointment;
-At event start - the appointment should have started;
-
 
 
 ##### eventStart/EventEnd
@@ -190,7 +171,6 @@ Returns an URL to a form where the user can select the calendar they wish to hav
 | eventStart          | JSON       | The start time can be provided as a simple Time or Date string or an object with two attributes, time and tzid.
 | eventEnd            | JSON       | The end time can be provided as a simple Time or Date string or an object with two attributes, time and tzid.
 | tzid                | String     | The timezone to render the event with.The start and end parameters should be omited.Example - Europe/Paris.
-| reminders           | String     | You can provide an array of up to 5 reminders for an event. They should be provided in order of priority for your application, not time order. This is because the providers support a varying number of reminders and we will set as many as they allow, in the order you provide them.
 | url                 | String     | A String value which must be parseable as a URI as defined as defined in RFC 1738 and RFC 2111.Omitting the value will leave the URL unchanged. Setting the value to null will remove the URL if supported by the provider.Support for event URLs is currently limited to Apple and Google. Please note there is an issue with Google whereby URLs are not removable once they are provided.
 | formattingHourFormat| Select     | An String of either h (12-hour format) or H (24-hour format). If omitted then the hour format to use will be determined by Cronofy.
 
@@ -210,23 +190,6 @@ Common examples are -
 - Etc/UTC
 - Europe/Paris
 - America/
-
-##### reminders
-
-You can provide an array of up to 5 reminders for an event. They should be provided in order of priority for your application, not time order. This is because the providers support a varying number of reminders and we will set as many as they allow, in the order you provide them.
-Number of reminders supported per provider:
-
-- Apple 5 reminders, note that icloud.com will only display two
-- Exchange 1 reminder
-- Google 5 reminders
-- Office 365 1 reminder
-- Outlook.com 1 reminder
-
-For example, if you provide 3 reminders and the provider only supports one, we will use the first one you specify, not the earliest or the latest one.
-As a concrete example, whilst we advise erring on the side of setting less reminders rather than more, it is easy to imagine that 3 reminders may be useful for an appointment:
-30 minutes before event start - get to the appointment;
-24 hours before event start - remember about the appointment;
-At event start - the appointment should have started;
 
 ## Cronofy.getListCalendars
 Returns a list of all the authenticated user's calendars.

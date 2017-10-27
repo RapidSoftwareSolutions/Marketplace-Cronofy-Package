@@ -38,11 +38,32 @@ $app->post('/api/Cronofy/readEvents', function ($request, $response) {
     }
 
     $client = $this->httpClient;
-    $query_str = "https://api.cronofy.com/v1/events";
+    $query_str = "https://api.cronofy.com/v1/events?";
 
-    
+    if(!empty($data['calendar_ids']))
+    {
+        $ids = '';
+        foreach($data['calendar_ids'] as $key => $value)
+        {
+            $ids .= 'calendar_ids[]='.$value.'&';
+        }
 
-    $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
+        $data['calendar_ids'] = $ids;
+    }
+
+    foreach($data as $key => $value)
+    {
+        if($key == 'calendar_ids')
+        {
+            $query_str .= '&'.$value;
+            continue;
+        }
+
+        $query_str .= '&'.$key.'='.$value;
+    }
+
+
+   // $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
     $requestParams['headers'] = ["Authorization"=>"Bearer {$data['accessToken']}"];
      
 

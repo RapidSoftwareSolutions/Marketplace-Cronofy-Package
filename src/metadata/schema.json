@@ -488,12 +488,6 @@
                     "required": true
                 },
                 {
-                    "name": "reminders",
-                    "type": "String",
-                    "info": "You can provide an array of up to 5 reminders for an event. They should be provided in order of priority for your application, not time order. This is because the providers support a varying number of reminders and we will set as many as they allow, in the order you provide them.See more in readme.",
-                    "required": false
-                },
-                {
                     "name": "url",
                     "type": "String",
                     "info": "A String value which must be parseable as a URI as defined as defined in RFC 1738 and RFC 2111.Omitting the value will leave the URL unchanged. Setting the value to null will remove the URL if supported by the provider.Support for event URLs is currently limited to Apple and Google. Please note there is an issue with Google whereby URLs are not removable once they are provided.",
@@ -707,12 +701,6 @@
                     "type": "String",
                     "info": "The timezone to render the event with.The start and end parameters should be omited.Example - Europe/Paris.",
                     "required": true
-                },
-                {
-                    "name": "reminders",
-                    "type": "String",
-                    "info": "You can provide an array of up to 5 reminders for an event. They should be provided in order of priority for your application, not time order. This is because the providers support a varying number of reminders and we will set as many as they allow, in the order you provide them.See more in readme.",
-                    "required": false
                 },
                 {
                     "name": "url",
